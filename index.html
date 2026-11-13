@@ -1,289 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="INNOVA WORLD : une plateforme mondiale pour partager des idées et construire le futur.">
-<title>INNOVA WORLD - Changeons le monde</title>
-
+<title>InnovaWorld - Cotonou</title>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: #080d20;
-  color: white;
-  line-height: 1.6;
-}
-
-header {
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #101832;
-  border-bottom: 1px solid #26345c;
-}
-
-.logo {
-  font-size: 21px;
-  font-weight: bold;
-  color: #a78bfa;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 12px;
-  font-size: 13px;
-}
-
-.hero {
-  text-align: center;
-  padding: 75px 20px;
-  background: radial-gradient(circle at top, #283b78, #080d20 70%);
-}
-
-.hero h1 {
-  font-size: 38px;
-  margin-bottom: 15px;
-}
-
-.hero h1 span {
-  color: #a78bfa;
-}
-
-.hero p {
-  color: #cbd5e1;
-  max-width: 550px;
-  margin: 0 auto 25px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 13px 22px;
-  border-radius: 9px;
-  background: #7957e8;
-  color: white;
-  border: none;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background: #6241ce;
-}
-
-section {
-  padding: 45px 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 27px;
-}
-
-.intro {
-  text-align: center;
-  color: #cbd5e1;
-  margin-bottom: 25px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-}
-
-.card {
-  background: #131e3b;
-  border: 1px solid #293b68;
-  padding: 23px;
-  border-radius: 14px;
-}
-
-.card h3 {
-  color: #b9a5ff;
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: #cbd5e1;
-  font-size: 14px;
-}
-
-.form-box {
-  background: #131e3b;
-  padding: 24px;
-  border-radius: 15px;
-  max-width: 550px;
-  margin: auto;
-  border: 1px solid #293b68;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 13px;
-  margin: 10px 0;
-  background: #080d20;
-  border: 1px solid #405078;
-  border-radius: 8px;
-  color: white;
-  font-size: 15px;
-}
-
-textarea {
-  min-height: 110px;
-  resize: vertical;
-}
-
-button {
-  font-size: 15px;
-}
-
-#message {
-  color: #a78bfa;
-  margin-top: 12px;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  background: #101832;
-  color: #aab5d0;
-  font-size: 13px;
-}
-
-@media(max-width: 480px) {
-  .hero h1 {
-    font-size: 30px;
-  }
-
-  nav a {
-    margin-left: 6px;
-    font-size: 11px;
-  }
-}
+  *{box-sizing:border-box} body{font-family:Arial;margin:0;background:#f0f2ff}
+  header{background:linear-gradient(135deg,#6a11cb,#2575fc);color:white;padding:25px 15px;text-align:center}
+  .container{max-width:600px;margin:0 auto;padding:15px}
+  .form{background:white;padding:18px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.1);margin-bottom:20px}
+  input,textarea{width:100%;padding:12px;margin:8px 0;border:2px solid #eee;border-radius:10px;font-size:16px}
+  .btn{background:linear-gradient(135deg,#6a11cb,#2575fc);color:white;border:none;padding:13px;width:100%;border-radius:10px;font-size:17px;font-weight:bold}
+  .card{background:white;padding:16px;border-radius:15px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+  .vote button{background:#fff0f5;border:1px solid #ff8fab;padding:8px 14px;border-radius:20px;font-size:15px}
+  #status{text-align:center;font-weight:bold;padding:8px}
 </style>
 </head>
-
 <body>
-
-<header>
-  <div class="logo">🌍 INNOVA WORLD</div>
-  <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#idees">Idées</a>
-    <a href="#proposer">Participer</a>
-  </nav>
-</header>
-
-<div class="hero" id="accueil">
-  <h1>Une idée peut <span>changer le monde.</span></h1>
-
-  <p>
-    Bienvenue sur INNOVA WORLD.
-    Une plateforme internationale où les idées,
-    les innovations et les talents se rencontrent
-    pour construire le futur.
-  </p>
-
-  <a href="#proposer" class="btn">Proposer une idée</a>
+<header><h1>💡 InnovaWorld</h1><p>Partage ton idée. Vote pour les meilleures. Change le Bénin ! 🇧🇯</p></header>
+<div class="container">
+<div id="status">Chargement...</div>
+<div class="form">
+<h3 style="margin:0">✍️ Propose une idée</h3>
+<input id="title" placeholder="Titre de ton idée...">
+<textarea id="desc" rows="3" placeholder="Décris ton idée..."></textarea>
+<button class="btn" onclick="addIdea()">🚀 Publier mon idée</button>
+</div>
+<h2>🔥 Les idées</h2>
+<div id="list"></div>
 </div>
 
-<section>
-  <h2>Bienvenue dans le futur</h2>
-
-  <p class="intro">
-    Imagine un monde où chacun peut partager
-    ses idées et trouver des personnes pour
-    transformer ses rêves en réalité.
-  </p>
-
-  <div class="cards">
-    <div class="card">
-      <h3>💡 Partage d'idées</h3>
-      <p>Publie tes idées et fais découvrir tes inventions au monde entier.</p>
-    </div>
-
-    <div class="card">
-      <h3>🌎 Défis mondiaux</h3>
-      <p>Participe à des défis et aide à résoudre des problèmes réels.</p>
-    </div>
-
-    <div class="card">
-      <h3>🏆 Classements</h3>
-      <p>Découvre les idées les plus appréciées de la communauté.</p>
-    </div>
-  </div>
-</section>
-
-<section id="idees">
-  <h2>Les grandes idées commencent ici</h2>
-  <p class="intro">
-    Chaque innovation commence par une simple idée.
-    Et si la prochaine venait de toi ?
-  </p>
-</section>
-
-<section id="proposer">
-  <h2>Partage ton idée</h2>
-
-  <div class="form-box">
-    <form id="ideaForm">
-      <input type="text" id="name"
-        placeholder="Ton nom" required>
-
-      <input type="text" id="title"
-        placeholder="Titre de ton idée" required>
-
-      <textarea id="description"
-        placeholder="Décris ton idée..."
-        required></textarea>
-
-      <button class="btn" type="submit">
-        Envoyer mon idée
-      </button>
-    </form>
-
-    <p id="message"></p>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 INNOVA WORLD</p>
-  <p>Une idée peut changer le monde. 🌍</p>
-</footer>
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-document.getElementById("ideaForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+const supabaseClient = supabase.createClient("https://lpeetxkniejzculpkocy.supabase.co","sb_publishable_a0cSDIXZ5fZXTNOC_gygCg_hdQCwXvc");
 
-  const idea = {
-    name: document.getElementById("name").value,
-    title: document.getElementById("title").value,
-    description: document.getElementById("description").value
-  };
-
-  let ideas = JSON.parse(localStorage.getItem("innovaIdeas") || "[]");
-  ideas.push(idea);
-  localStorage.setItem("innovaIdeas", JSON.stringify(ideas));
-
-  document.getElementById("message").textContent =
-    "Merci ! Ton idée est enregistrée sur cet appareil.";
-
-  this.reset();
-});
+async function loadIdeas(){
+  const {data,error} = await supabaseClient.from('ideas').select('*').order('created_at',{ascending:false});
+  document.getElementById('status').textContent = error ? "❌ "+error.message : "✅ "+data.length+" idée(s)";
+  if(!error){
+    document.getElementById('list').innerHTML = data.length===0 ? "<div class='card'>Aucune idée. Sois le premier ! 👆</div>" : data.map(i=>`
+      <div class='card'>
+        <h3>${i.title||'Sans titre'}</h3>
+        <p>${i.description||''}</p>
+        <div><button onclick="vote('${i.id}')">❤️ J'aime</button> <small> • ${new Date(i.created_at).toLocaleDateString('fr-FR')}</small></div>
+      </div>`).join('');
+  }
+}
+async function addIdea(){
+  const title=document.getElementById('title').value.trim();
+  const description=document.getElementById('desc').value.trim();
+  if(!title){alert("Mets un titre d'abord !");return;}
+  const {error}=await supabaseClient.from('ideas').insert([{title,description}]);
+  if(error){alert("Erreur: "+error.message);return;}
+  document.getElementById('title').value="";document.getElementById('desc').value="";
+  alert("🎉 Idée publiée !");loadIdeas();
+}
+async function vote(idea_id){
+  const {error}=await supabaseClient.from('votes').insert([{idea_id}]);
+  if(error){alert("Erreur vote: "+error.message);}
+  else{alert("❤️ Merci pour ton vote !");loadIdeas();}
+}
+loadIdeas();
 </script>
-
 </body>
 </html>
