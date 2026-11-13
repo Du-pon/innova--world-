@@ -3,64 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>InnovaWorld - Cotonou</title>
+<title>InnovaWorld 🇧🇯</title>
 <style>
-  *{box-sizing:border-box} body{font-family:Arial;margin:0;background:#f0f2ff}
-  header{background:linear-gradient(135deg,#6a11cb,#2575fc);color:white;padding:25px 15px;text-align:center}
-  .container{max-width:600px;margin:0 auto;padding:15px}
-  .form{background:white;padding:18px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.1);margin-bottom:20px}
-  input,textarea{width:100%;padding:12px;margin:8px 0;border:2px solid #eee;border-radius:10px;font-size:16px}
-  .btn{background:linear-gradient(135deg,#6a11cb,#2575fc);color:white;border:none;padding:13px;width:100%;border-radius:10px;font-size:17px;font-weight:bold}
-  .card{background:white;padding:16px;border-radius:15px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-  .vote button{background:#fff0f5;border:1px solid #ff8fab;padding:8px 14px;border-radius:20px;font-size:15px}
-  #status{text-align:center;font-weight:bold;padding:8px}
-</style>
-</head>
-<body>
-<header><h1>💡 InnovaWorld</h1><p>Partage ton idée. Vote pour les meilleures. Change le Bénin ! 🇧🇯</p></header>
-<div class="container">
-<div id="status">Chargement...</div>
-<div class="form">
-<h3 style="margin:0">✍️ Propose une idée</h3>
-<input id="title" placeholder="Titre de ton idée...">
-<textarea id="desc" rows="3" placeholder="Décris ton idée..."></textarea>
-<button class="btn" onclick="addIdea()">🚀 Publier mon idée</button>
-</div>
-<h2>🔥 Les idées</h2>
-<div id="list"></div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-const supabaseClient = supabase.createClient("https://lpeetxkniejzculpkocy.supabase.co","sb_publishable_a0cSDIXZ5fZXTNOC_gygCg_hdQCwXvc");
-
-async function loadIdeas(){
-  const {data,error} = await supabaseClient.from('ideas').select('*').order('created_at',{ascending:false});
-  document.getElementById('status').textContent = error ? "❌ "+error.message : "✅ "+data.length+" idée(s)";
-  if(!error){
-    document.getElementById('list').innerHTML = data.length===0 ? "<div class='card'>Aucune idée. Sois le premier ! 👆</div>" : data.map(i=>`
-      <div class='card'>
-        <h3>${i.title||'Sans titre'}</h3>
-        <p>${i.description||''}</p>
-        <div><button onclick="vote('${i.id}')">❤️ J'aime</button> <small> • ${new Date(i.created_at).toLocaleDateString('fr-FR')}</small></div>
-      </div>`).join('');
-  }
-}
-async function addIdea(){
-  const title=document.getElementById('title').value.trim();
-  const description=document.getElementById('desc').value.trim();
-  if(!title){alert("Mets un titre d'abord !");return;}
-  const {error}=await supabaseClient.from('ideas').insert([{title,description}]);
-  if(error){alert("Erreur: "+error.message);return;}
-  document.getElementById('title').value="";document.getElementById('desc').value="";
-  alert("🎉 Idée publiée !");loadIdeas();
-}
-async function vote(idea_id){
-  const {error}=await supabaseClient.from('votes').insert([{idea_id}]);
-  if(error){alert("Erreur vote: "+error.message);}
-  else{alert("❤️ Merci pour ton vote !");loadIdeas();}
-}
-loadIdeas();
-</script>
-</body>
-</html>
+*{box-sizing:border-box} body{font-family:'Segoe UI',Arial,sans-serif;margin:0;background:#f6f7ff;color:#1a1a2e}
+header{background:linear-gradient(135deg,#7c3aed,#2563eb,#06b6d4);color:white;padding:32px 16px 28px;text-align:center;border-radius:0 0 28px 28px;box-shadow:0 8px 25px rgba(124,58,237,.3)}
+header h1{margin:0;font-size:34px} header p{opacity:.9;margin:8px 0 0;font-size:15px}
+.container{max-width:620px;margin:0 auto;padding:16px}
+.stats{display:flex;gap:10px;margin:14px 0} .stat{flex:1;background:white;padding:12px;border-radius:14px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.06)} .stat b{font-size:20px;display:block} .stat span{font-size:12px;color:#666}
+.form{background:white;padding:20px;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:18px}
+input,textarea,select{width:100%;padding:13px;margin:7px 0;border:2px solid #eef0ff;border-radius:12px;font-size:16px;outline:none;background:#fbfbff}
+input:focus,textarea:focus{border-color:#7c3aed}
+.btn{background:linear-gradient(135deg,#7c3aed,#2563eb);color:white;border:none;padding:14px;width:100%;border-radius:12px;font-size:17px;font-weight:800;cursor:pointer}
+.btn:active{transform:scale(.98)}
+.search{display:flex;gap:8px;margin-bottom:12px} .search input{flex:1} .search select{width:130px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px} .chip{white-space:nowrap;background:white;border:1px solid #e5e7ff;padding:7px 13px;border-radius:20px;font-size:13px;cursor:pointer} .chip.active{background:#7c3aed;color:white;border-color:#7c3aed}
+.card{background:white;padding:18px;border-radius:20px;margin-bottom:12px;box-shadow:0 3px 14px rgba(0,0,0,.06);border:1px solid #f0f0ff}
+.card h3{margin:0 0 6px;font-size:18px;line-height:1.3
